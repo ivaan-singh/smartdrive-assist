@@ -74,18 +74,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
   pointer-events:none;
 }
 .page-nav-banner:hover{background:#181b28;}
-/* light-prev: banner follows a white/light section — flip to white with blue */
-.page-nav-banner.light-prev{background:var(--off-white);border-top:1px solid var(--border);}
+/* light-prev: banner follows a white/light section — muted grey */
+.page-nav-banner.light-prev{background:#dddfe5;border-top:1px solid #c8cad2;padding-top:3.75rem;padding-bottom:3.75rem;}
 .page-nav-banner.light-prev::before{display:none;}
-.page-nav-banner.light-prev:hover{background:#eceef2;}
-.page-nav-banner.light-prev .pnb-eyebrow{color:var(--text-muted);}
-.page-nav-banner.light-prev .pnb-title{color:var(--text-dark);}
+.page-nav-banner.light-prev:hover{background:#d2d4da;}
+.page-nav-banner.light-prev .pnb-eyebrow{color:#888c99;}
+.page-nav-banner.light-prev .pnb-title{color:#0f1117;}
 .page-nav-banner.light-prev .pnb-title span{color:var(--accent);}
-.page-nav-banner.light-prev .pnb-sub{color:var(--text-muted);}
-.page-nav-banner.light-prev .pnb-dot{background:var(--border);}
+.page-nav-banner.light-prev .pnb-sub{color:#6b7280;}
+.page-nav-banner.light-prev .pnb-dot{background:#b0b5c0;}
 .page-nav-banner.light-prev .pnb-dot.on{background:var(--accent);}
-.page-nav-banner.light-prev .pnb-arrow{background:#f2f2f2;border-color:#d8d8d8;}
-.page-nav-banner.light-prev .pnb-arrow svg{stroke:#9ca3af;}
+.page-nav-banner.light-prev .pnb-arrow{background:#c8cad2;border-color:#b0b3bc;}
+.page-nav-banner.light-prev .pnb-arrow svg{stroke:#6b7280;}
 .page-nav-banner.light-prev:hover .pnb-arrow{background:var(--accent);border-color:var(--accent);transform:translateX(6px);}
 .page-nav-banner.light-prev:hover .pnb-arrow svg{stroke:white;}
 .pnb-left{text-align:left;}
@@ -150,6 +150,11 @@ h1 .hl{color:var(--accent);}
 
 /* ── PAGE: FEATURES ── */
 #pg-features{}
+/* BACK BUTTON */
+.back-btn{display:inline-flex;align-items:center;gap:.45rem;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;color:var(--text-muted);padding:1.25rem 5% .5rem;transition:color .2s;}
+.back-btn:hover{color:var(--text-dark);}
+.back-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s;}
+.back-btn:hover svg{transform:translateX(-3px);}
 .features-hero{padding:60px 5% 0;text-align:center;max-width:600px;margin:0 auto;}
 .feat-grid-hero{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;max-width:1100px;margin:0 auto 1.25rem;padding:0 5%;}
 .feat-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.5rem;transition:border-color .2s,box-shadow .2s,transform .2s;}
@@ -167,6 +172,8 @@ h1 .hl{color:var(--accent);}
 .feat-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.4rem;color:var(--text-dark);}
 .feat-desc{font-size:.83rem;color:var(--text-muted);line-height:1.65;}
 .more-features-wrap{max-width:1100px;margin:0 auto;padding:0 5% 80px;}
+.home-feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+@media(max-width:700px){.home-feat-grid{grid-template-columns:1fr;}}
 .more-toggle{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;background:none;border:1.5px solid var(--border);border-radius:10px;padding:.65rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;color:var(--text-muted);cursor:pointer;transition:border-color .2s,color .2s;}
 .more-toggle:hover{border-color:var(--accent);color:var(--accent);}
 .more-toggle .arr{transition:transform .3s;font-size:.72rem;}
@@ -298,28 +305,8 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
   <ul class="nav-links">
     <li><a onclick="showPage('home')" id="nl-home">Home</a></li>
     <li><a onclick="showPage('features')" id="nl-features">Features</a></li>
-    <li class="has-drop" id="about-drop">
-      <button onclick="toggleDrop()">About</button>
-      <ul class="dropdown" id="about-dropdown">
-        <li><button onclick="showPage('about');closeDrop()">
-          <svg class="drop-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M10 2a4 4 0 100 8 4 4 0 000-8zm-7 16c0-3.31 3.13-6 7-6s7 2.69 7 6"/></svg>
-          <span class="drop-text"><strong>Our Mission</strong><span>Why we built SmartDrive Assist</span></span>
-        </button></li>
-        <li><a href="https://ivaansingh.com/techcare-warriors" target="_blank" onclick="closeDrop()">
-          <svg class="drop-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M7 10h6M10 7v6"/></svg>
-          <span class="drop-text"><strong>TechCare Warriors</strong><span>The project behind the product</span></span>
-        </a></li>
-        <li><a href="https://ivaansingh.com/techcare-warriors/behind-the-build/" target="_blank" onclick="closeDrop()">
-          <svg class="drop-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M14 2l4 4-9 9H5v-4L14 2z"/></svg>
-          <span class="drop-text"><strong>Behind the Build</strong><span>How we designed and prototyped it</span></span>
-        </a></li>
-        <div class="drop-divider"></div>
-        <li><button onclick="showPage('home');scrollTo('testi');closeDrop()">
-          <svg class="drop-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M17 8c0 4-3.58 7-7 7a7.4 7.4 0 01-3-.63L3 16l1.63-4A6.94 6.94 0 013 8c0-3.87 3.13-7 7-7s7 3.13 7 7z"/></svg>
-          <span class="drop-text"><strong>What People Say</strong><span>Expert feedback on the project</span></span>
-        </button></li>
-      </ul>
-    </li>
+    <li><a onclick="showPage('about')" id="nl-about">About</a></li>
+    <li><a onclick="showPage('faq')" id="nl-faq">FAQ</a></li>
     <li><a onclick="showPage('contact')" id="nl-contact">Contact</a></li>
     <li><a class="nav-cta" onclick="showPage('contact')">Get in touch</a></li>
   </ul>
@@ -352,7 +339,15 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
         <div style="margin-bottom:1.25rem;">
           <img src="../images/logo.svg" alt="SmartDrive Assist logo" style="width:100%;max-width:320px;display:block;margin:0 auto;border-radius:14px;"/>
         </div>
+        <p class="hc-title">SmartDrive Assist v1.2</p>
+        <p class="hc-sub">9 smart modules &middot; Bolt-on &middot; Zero chair replacement</p>
+        <div class="hero-stat-grid">
+          <div class="stat-chip"><div class="val">Rs.10K</div><div class="lbl">Target price</div></div>
+          <div class="stat-chip"><div class="val">9</div><div class="lbl">Smart features</div></div>
+          <div class="stat-chip"><div class="val">0</div><div class="lbl">Modifications</div></div>
+          <div class="stat-chip"><div class="val">Auto</div><div class="lbl">Self-recharging</div></div>
         </div>
+        <div class="hero-status"><div class="status-dot"></div>All systems nominal &middot; Prototype active</div>
       </div>
     </div>
   </section>
@@ -435,7 +430,7 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
         </div>
         <button onclick="showPage('features')" style="font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;color:var(--accent);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:.3rem;flex-shrink:0;">See all features &rarr;</button>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+      <div class="home-feat-grid">
         <div style="background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.25rem 1.4rem;display:flex;align-items:flex-start;gap:.9rem;">
           <div style="width:36px;height:36px;border-radius:9px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"><path d="M10 3v14M3 10h14"/></svg>
@@ -505,7 +500,7 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
         <li><button onclick="showPage('features')">Features</button></li>
         <li><button onclick="showPage('features')">How it works</button></li>
         <li><button onclick="showPage('features')">Specifications</button></li>
-        <li><button onclick="showPage('about')">FAQ</button></li>
+        <li><button onclick="showPage('faq')">FAQ</button></li>
       </ul>
     </div>
     <div class="foot-col">
@@ -534,8 +529,11 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
 
 <!-- ════════════════ PAGE: FEATURES ════════════════ -->
 <div class="pg" id="pg-features">
-
-  <div class="features-hero section fade-up" style="padding-bottom:2rem;">
+  <button class="back-btn" onclick="showPage('home')">
+    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to Home
+  </button>
+  <div class="features-hero fade-up">
     <div class="section-tag">Features</div>
     <h2 class="section-title">Built different.<br/>Engineered smarter.</h2>
     <p class="section-sub">Nine smart capabilities in one modular add-on — no chair replacement, no rewiring, no compromise.</p>
@@ -690,7 +688,7 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
         <li><button onclick="showPage('features')">Features</button></li>
         <li><button onclick="showPage('features')">How it works</button></li>
         <li><button onclick="showPage('features')">Specifications</button></li>
-        <li><button onclick="showPage('about')">FAQ</button></li>
+        <li><button onclick="showPage('faq')">FAQ</button></li>
       </ul>
     </div>
     <div class="foot-col">
@@ -719,7 +717,10 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
 
 <!-- ════════════════ PAGE: ABOUT ════════════════ -->
 <div class="pg" id="pg-about">
-
+  <button class="back-btn" onclick="showPage('features')">
+    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to Features
+  </button>
   <div class="about-hero">
     <div class="fade-up">
       <div class="section-tag">About</div>
@@ -765,7 +766,71 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
     <blockquote>"Making smart mobility <span>accessible to everyone</span> — not just those who can afford a replacement chair."</blockquote>
   </div>
 
-  <!-- FAQ -->
+  <!-- PAGE NAV: About → FAQ -->
+  <button class="page-nav-banner" onclick="showPage('faq')">
+    <div class="pnb-left">
+      <div class="pnb-eyebrow">Next &mdash; FAQ screen</div>
+      <div class="pnb-title">Got <span>questions?</span></div>
+      <div class="pnb-sub">Common questions answered before you contact us</div>
+    </div>
+    <div class="pnb-right">
+      <div class="pnb-dots">
+        <div class="pnb-dot"></div>
+        <div class="pnb-dot"></div>
+        <div class="pnb-dot"></div>
+        <div class="pnb-dot"></div>
+        <div class="pnb-dot on"></div>
+      </div>
+      <div class="pnb-arrow">
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+  </button>
+
+  <footer>
+    <div class="foot-brand">
+      <button class="foot-logo" onclick="showPage('home')">SmartDrive <span>Assist.</span></button>
+      <p>A TechCare Warriors initiative. Making smart mobility accessible for everyone, everywhere.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Product</h5>
+      <ul>
+        <li><button onclick="showPage('features')">Features</button></li>
+        <li><button onclick="showPage('features')">How it works</button></li>
+        <li><button onclick="showPage('features')">Specifications</button></li>
+        <li><button onclick="showPage('faq')">FAQ</button></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>About</h5>
+      <ul>
+        <li><button onclick="showPage('about')">Our mission</button></li>
+        <li><a href="https://ivaansingh.com/techcare-warriors" target="_blank">TechCare Warriors</a></li>
+        <li><a href="https://ivaansingh.com/techcare-warriors/behind-the-build/" target="_blank">Behind the Build</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Connect</h5>
+      <ul>
+        <li><button onclick="showPage('contact')">Get in touch</button></li>
+        <li><a href="https://ivaan-singh.github.io" target="_blank">Team site</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="foot-bottom">
+    <span>2025 SmartDrive Assist &middot; TechCare Warriors &middot; Gurugram, India</span>
+    <span>A student innovation project</span>
+  </div>
+
+</div><!-- end pg-about -->
+
+<!-- ════════════════ PAGE: FAQ ════════════════ -->
+<div class="pg" id="pg-faq">
+  <button class="back-btn" onclick="showPage('about')">
+    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to About
+  </button>
+
   <div class="faq-band">
     <div class="faq-layout">
       <div class="fade-up">
@@ -798,7 +863,7 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
     </div>
   </div>
 
-  <!-- PAGE NAV: About → Contact -->
+  <!-- PAGE NAV: FAQ → Contact -->
   <button class="page-nav-banner" onclick="showPage('contact')">
     <div class="pnb-left">
       <div class="pnb-eyebrow">Next &mdash; Contact screen</div>
@@ -807,6 +872,7 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
     </div>
     <div class="pnb-right">
       <div class="pnb-dots">
+        <div class="pnb-dot"></div>
         <div class="pnb-dot"></div>
         <div class="pnb-dot"></div>
         <div class="pnb-dot on"></div>
@@ -829,7 +895,7 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
         <li><button onclick="showPage('features')">Features</button></li>
         <li><button onclick="showPage('features')">How it works</button></li>
         <li><button onclick="showPage('features')">Specifications</button></li>
-        <li><button onclick="showPage('about')">FAQ</button></li>
+        <li><button onclick="showPage('faq')">FAQ</button></li>
       </ul>
     </div>
     <div class="foot-col">
@@ -852,13 +918,15 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
     <span>2025 SmartDrive Assist &middot; TechCare Warriors &middot; Gurugram, India</span>
     <span>A student innovation project</span>
   </div>
-
-</div><!-- end pg-about -->
+</div><!-- end pg-faq -->
 
 
 <!-- ════════════════ PAGE: CONTACT ════════════════ -->
 <div class="pg" id="pg-contact">
-
+  <button class="back-btn" onclick="showPage('faq')">
+    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to FAQ
+  </button>
   <div class="contact-wrap">
     <div class="fade-up">
       <div class="section-tag">Contact</div>
@@ -928,7 +996,7 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
         <li><button onclick="showPage('features')">Features</button></li>
         <li><button onclick="showPage('features')">How it works</button></li>
         <li><button onclick="showPage('features')">Specifications</button></li>
-        <li><button onclick="showPage('about')">FAQ</button></li>
+        <li><button onclick="showPage('faq')">FAQ</button></li>
       </ul>
     </div>
     <div class="foot-col">
@@ -955,7 +1023,7 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
 </div><!-- end pg-contact -->
 
 <script>
-  const VALID_PAGES = ['home','features','about','contact'];
+  const VALID_PAGES = ['home','features','about','faq','contact'];
 
   // PAGE ROUTER
   function showPage(id) {
@@ -968,7 +1036,7 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
     closeDrop();
     setTimeout(initFades, 50);
     // update active nav link
-    ['home','features','contact'].forEach(p => {
+    ['home','features','about','faq','contact'].forEach(p => {
       const el = document.getElementById('nl-' + p);
       if(el) el.style.color = (p === id) ? 'var(--text-dark)' : '';
     });
@@ -999,14 +1067,16 @@ footer{background:var(--text-dark);color:rgba(255,255,255,.4);padding:3rem 5%;di
 
   // ABOUT DROPDOWN — click to open, click outside to close
   function toggleDrop() {
-    document.getElementById('about-drop').classList.toggle('open');
+    const aboutDrop = document.getElementById('about-drop');
+    if (aboutDrop) aboutDrop.classList.toggle('open');
   }
   function closeDrop() {
-    document.getElementById('about-drop').classList.remove('open');
+    const aboutDrop = document.getElementById('about-drop');
+    if (aboutDrop) aboutDrop.classList.remove('open');
   }
   document.addEventListener('click', function(e) {
     const drop = document.getElementById('about-drop');
-    if (!drop.contains(e.target)) closeDrop();
+    if (drop && !drop.contains(e.target)) closeDrop();
   });
 
   // MORE FEATURES TOGGLE
